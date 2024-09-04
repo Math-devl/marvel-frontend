@@ -25,7 +25,7 @@ const Characters = () => {
   ) : (
     <main>
       {data.map((details) => {
-        //console.log(details._id); // chaque heros dans un objet
+        //console.log(details._id); // id de chaque heros dans un objet
         /* console.log(
           details.thumbnail.path +
             "/portrai_fantastic." +
@@ -34,7 +34,7 @@ const Characters = () => {
         return (
           <Link
             className="text-link"
-            to={`/character/${details._id}`}
+            /*  to={`/comic/${details._id}`} */
             key={details._id}
           >
             <article>

@@ -4,21 +4,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Character = () => {
+/* const Comic = () => {
   // states
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   //destructuring pour récupérer l'id
-  const { characterId } = useParams();
+  // soucis on récupère l'id du personnage là, pas des BD lié au personnage
+  const { comicId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/character/${characterId}`
+          `http://localhost:3000/comic/${comicId}`
         );
-        //console.log(response.data); // {} données du perso
+        console.log(response.data); // {} données du perso
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -26,19 +27,8 @@ const Character = () => {
       }
     };
     fetchData();
-  }, [characterId]);
-  return isLoading ? (
-    <p>Loading...</p>
-  ) : (
-    <div>
-      <h1>{data.name}</h1>
-      <img
-        src={
-          data.thumbnail.path + "/portrait_uncanny." + data.thumbnail.extension
-        }
-      />
-    </div>
-  );
-};
+  }, [comicId]);
+  return isLoading ? <p>Loading...</p> : <div>Test</div>;
+}; */
 
-export default Character;
+export default Comic;
