@@ -1,3 +1,10 @@
+/*-----GENERALE---------*/
+
+.text-link {
+  color: black;
+  text-decoration: none;
+}
+
 /*-------HEADER---------*/
 
 .header-logo {

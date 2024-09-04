@@ -7,6 +7,7 @@ import Header from "./components/Header";
 // pages
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
+import Character from "./pages/Character";
 import Comics from "./pages/Comics";
 import Favoris from "./pages/Favoris";
 
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/characters" element={<Characters />} />
+        <Route path="/character/:characterId" element={<Character />} />
         {/* //route pour aller vers les comics liés au character */}
         <Route path="/comics" element={<Comics />} />
         <Route path="/favoris" element={<Favoris />} />
