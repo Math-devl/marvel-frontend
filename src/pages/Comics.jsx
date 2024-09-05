@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
-const Comics = () => {
+const Comics = ({ search, setSearch }) => {
   // states
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,8 +9,11 @@ const Comics = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/comics");
-        console.log(response.data); // renvoie un [ {infos d'un personnage} ]
+        const response = await axios.get(
+          `http://localhost:3000/comics?title=${search}`
+        );
+
+        //console.log(response.data); //
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -19,11 +21,23 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <main>
+      <div>
+        <input
+          type="text"
+          value={search}
+          onChange={(event) => {
+            // console.log(event.target.value); // ok renvoie ce qu'on tape dans la barre de recherche
+            //setSearch(event.target.value);
+
+            setSearch(event.target.value);
+          }}
+        />
+      </div>
       {data.sort().map((details) => {
         //console.log(details._id); // id de chaque heros dans un objet
         /* console.log(
