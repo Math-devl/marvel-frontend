@@ -13,14 +13,15 @@ const Favoris = () => {
   }, []);
 
   return (
-    <main>
+    <main className="container">
       <h1>Mes Favoris</h1>
       {favorites.length === 0 ? (
         <p>Aucun favori pour le moment.</p>
       ) : (
         favorites.map((details) => (
           <article key={details._id}>
-            <h1>{details.title}</h1>
+            {details.title ? <h1>{details.title}</h1> : <h1>{details.name}</h1>}
+            <h1></h1>
             <img
               src={
                 details.thumbnail.path +

@@ -32,7 +32,7 @@ const ComicsCharId = () => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <main>
+    <main className="container">
       <div>
         <h1>Retrouvz toutes les BD de votre personnage préféré {data.name}</h1>
         <img

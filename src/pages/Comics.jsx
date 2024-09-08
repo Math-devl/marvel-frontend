@@ -76,10 +76,12 @@ const Comics = ({ search, setSearch }) => {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <main>
-      <div>
+    <main className="container">
+      <div className="search">
         <input
+          className="search-bar"
           type="text"
+          placeholder="Recherche ton comic"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
@@ -104,20 +106,22 @@ const Comics = ({ search, setSearch }) => {
         return (
           <article key={details._id}>
             <h1>{details.title}</h1>
-            <label htmlFor={details._id}>Ajouter aux favoris</label>
-            <input
-              type="checkbox"
-              id={details._id}
-              checked={isFavorite}
-              onChange={() => handleFavorite(details)} // Ajouter ou retirer des favoris
-            />
+
             <img
+              className="img"
               src={
                 details.thumbnail.path +
                 "/portrait_uncanny." +
                 details.thumbnail.extension
               }
               alt={details.title}
+            />
+            <label htmlFor={details._id}>Ajouter aux favoris</label>
+            <input
+              type="checkbox"
+              id={details._id}
+              checked={isFavorite}
+              onChange={() => handleFavorite(details)} // Ajouter ou retirer des favoris
             />
             <p>{details.description}</p>
           </article>
